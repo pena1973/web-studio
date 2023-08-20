@@ -1,4 +1,6 @@
+// Это Точка входа в приложение
 import '@/styles/globals.css'
+import 'normalize.css/normalize.css'
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
