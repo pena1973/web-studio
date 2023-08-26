@@ -37,7 +37,7 @@ export default function Layout({ children }: PropsWithChildren) {
         <main className={styles.main}>{children}</main>
 
         <footer className={styles.footer}>
-          <div>&copy; 2023 Web studio</div>
+          <div>&copy; 2023 Web studio {FOOTER_EMAIL}</div>
           <a href={`mailto:${FOOTER_EMAIL}`}>{FOOTER_EMAIL}</a>
         </footer>
       </div>
