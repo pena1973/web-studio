@@ -16,6 +16,11 @@ export default function Navigation() {
           </Link>
         </li>
         <li className={styles.item}>
+          <Link href="/portfolio">
+            Портфолио
+          </Link>
+        </li>
+        <li className={styles.item}>
           <Link href="/contacts">
             Контакты
           </Link>

@@ -3,13 +3,14 @@ import Link from 'next/link';
 import styles from "./layout.module.css";
 import Head from "next/head";
 import Navigation from "../navigation/navigation";
-import {clsx} from 'clsx';
-
+import { clsx } from 'clsx';
+import { usePathname } from 'next/navigation'
 
 export default function Layout({ children }: PropsWithChildren) {
+    
+    const pathname = usePathname();
+    
   
-// const pathname = window.location.pathname;
-
   return (
     <>
       <Head>
@@ -21,16 +22,15 @@ export default function Layout({ children }: PropsWithChildren) {
 
       <div className={styles.container}>
         <header className={styles.header}>
-        <Link 
-            href="/"
-            className={styles.logo}
-            // className={clsx(
-            //     styles.logo,
-            //     { [styles.disabled]: pathname === "/" }
-            // )}
-        >
+          <Link
+            href="/"            
+            className={clsx(
+              styles.logo,             
+              { [styles.disabled]: pathname === "/" }
+            )}
+          >
             WEBSTUDIO
-        </Link>
+          </Link>
           <Navigation />
         </header>
         <main className={styles.main}>{children}</main>
