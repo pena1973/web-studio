@@ -5,12 +5,13 @@ import Head from "next/head";
 import Navigation from "../navigation/navigation";
 import { clsx } from 'clsx';
 import { usePathname } from 'next/navigation'
+import { FOOTER_EMAIL } from "@/const";
 
 export default function Layout({ children }: PropsWithChildren) {
-    
-    const pathname = usePathname();
-    
-  
+
+  const pathname = usePathname();
+
+
   return (
     <>
       <Head>
@@ -23,9 +24,9 @@ export default function Layout({ children }: PropsWithChildren) {
       <div className={styles.container}>
         <header className={styles.header}>
           <Link
-            href="/"            
+            href="/"
             className={clsx(
-              styles.logo,             
+              styles.logo,
               { [styles.disabled]: pathname === "/" }
             )}
           >
@@ -34,7 +35,11 @@ export default function Layout({ children }: PropsWithChildren) {
           <Navigation />
         </header>
         <main className={styles.main}>{children}</main>
-        <footer className={styles.footer}>&copy; 2023 Web studio</footer>
+
+        <footer className={styles.footer}>
+          <div>&copy; 2023 Web studio</div>
+          <a href={`mailto:${FOOTER_EMAIL}`}>{FOOTER_EMAIL}</a>
+        </footer>
       </div>
     </>
   );

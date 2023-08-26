@@ -1,7 +1,7 @@
 
 import Image from 'next/image'
 import { useState, useEffect } from "react";
-import { PHOTOS_API_URL } from '../components/const'
+import { PHOTOS_API_URL } from '../const'
 import axios from 'axios'
 import Layout from '../components/layout/layout'
 import { useRouter } from "next/router";

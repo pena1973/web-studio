@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { PortfolioItem } from '../../portfolio'
 import Layout from '../../../components/layout/layout'
 import styles from "../../../components/layout/layout.module.css";
-import { PHOTOS_API_URL } from '../../../components/const'
+import { PHOTOS_API_URL } from '../../../const'
 import axios from 'axios';
 
 interface ItemProps {
