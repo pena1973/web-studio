@@ -7,25 +7,27 @@ import { PHOTOS_API_URL } from '../../../const'
 import axios from 'axios';
 
 interface ItemProps {
-   portfolioItem: PortfolioItem,  
+  portfolioItem: PortfolioItem,
 }
-type Context = {  
-  params:{id:number}
+type Context = {
+  params: { id: number }
 }
 
 // // Эта функция вызывается в момент рендеринга 
 // // на стороне сервера  и принимает пропсы страницы 
 // // чтобы предварительно получить нужные данные
 // params -(часть контекста) параметры страницы в которых есть Id страницы
-export async function getServerSideProps({params}:Context){
-   const url = `${PHOTOS_API_URL}${params?.id}`  
-   const { data } = await axios.get<PortfolioItem[]>(url);
+export async function getServerSideProps({ params }: Context) {
+  debugger;
+  console.log('params', params);
+  const url = `${PHOTOS_API_URL}${params?.id}`
+  const { data } = await axios.get<PortfolioItem[]>(url);
   return {
     props: { portfolioItem: data }
-  }  
+  }
 }
 export default function Item(
-   { portfolioItem }: ItemProps) {  
+  { portfolioItem }: ItemProps) {
   if (!portfolioItem) return null;
   return (
     <Layout>
@@ -51,7 +53,7 @@ export default function Item(
 // query: объект для строки запроса.
 // preview (boolean): если страница находится в режиме предварительного просмотра, предварительный просмотр имеет значение true; в противном случае это ложь.
 // PreviewData: данные предварительного просмотра, установленные setPreviewData.
-// solvedUrl: нормализованная версия URL-адреса запроса, в которой префикс _next/data удален для переходов клиента и включены исходные значения запроса.
+// resolvedUrl: нормализованная версия URL-адреса запроса, в которой префикс _next/data удален для переходов клиента и включены исходные значения запроса.
 // locale: содержит активную локаль (если она включена).
 // locales: содержит все поддерживаемые локали (если они включены).
 // defaultLocale: настроенный языковой стандарт по умолчанию.
